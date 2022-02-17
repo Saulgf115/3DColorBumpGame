@@ -11,7 +11,12 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += Vector3.forward * cameraSpeed * Time.deltaTime;
+
+        if(FindObjectOfType<PlayerController>().canMove)
+        {
+            transform.position += Vector3.forward * cameraSpeed * Time.deltaTime;
+        }
+        
 
         cameraVelocity = Vector3.forward * cameraSpeed * Time.deltaTime; 
     }
